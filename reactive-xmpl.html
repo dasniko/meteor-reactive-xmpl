@@ -1,0 +1,39 @@
+﻿<head>
+	<title>Reactive examples</title>
+</head>
+
+<body>
+	<h1>Reactive examples</h1>
+	{{> books}}
+	{{> cart}}
+</body>
+
+<template name="books">
+	<h3>Books:</h3>
+	{{#each allBooks}}
+	<div>
+		<a href="" class="add">{{title}}, {{price}} €
+		<span class="glyphicon glyphicon-shopping-cart"></span></a>
+	</div>
+	{{/each}}
+</template>
+
+<template name="cart">
+	<h3>Cart:</h3>
+	<table border="1">
+	<tr>
+		<th style="width: 200px">Title</th>
+		<th style="width: 100px">Availability</th>
+		<th style="width: 100px;">Price</th>
+	</tr>
+	{{#each cartItems}}
+	<tr>
+		<td>{{title}}</td>
+		<td>{{availability}}</td>
+		<td style="text-align: right">{{price}}</td>
+	</tr>
+	{{/each}}
+	<tr><th colspan="2">{{count}} items / sum:</th><th style="text-align: right">{{sum}}</th></tr>
+	</table>
+	<input type="button" class="reset" value="reset cart" />
+</template>
