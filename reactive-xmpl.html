@@ -20,6 +20,7 @@
 
 <template name="cart">
 	<h3>Cart:</h3>
+	<input type="button" class="reset" value="reset cart" />
 	<table border="1">
 	<tr>
 		<th style="width: 200px">Title</th>
@@ -35,5 +36,4 @@
 	{{/each}}
 	<tr><th colspan="2">{{count}} items / sum:</th><th style="text-align: right">{{sum}}</th></tr>
 	</table>
-	<input type="button" class="reset" value="reset cart" />
 </template>

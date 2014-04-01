@@ -57,7 +57,7 @@ if (Meteor.isServer) {
   });
   
   Meteor.publish("books", function() {
-    return Books.find();
+    return Books.find({}, {fields: {title: 1, price: 1}});
   });
   Meteor.publish("cart", function() {
     return Cart.find();
@@ -65,8 +65,9 @@ if (Meteor.isServer) {
   
   Meteor.startup(function() {
     Books.remove({});
-    Books.insert({title: "Meteor in Action", price: 49.99});
-	Books.insert({title: "Effective Meteor", price: 59.99});
-	Books.insert({title: "Meteor in a Nutshell", price: 69.99});
+    Books.insert({title: "Meteor in Action", stock: 5, price: 49.99});
+	Books.insert({title: "Effective Meteor", stock: 3, price: 59.99});
+	Books.insert({title: "Meteor in a Nutshell", stock: 6, price: 69.99});
+	Books.insert({title: "Single Page Web-Apps", stock: 10, price: 30.00});
   });
 }
