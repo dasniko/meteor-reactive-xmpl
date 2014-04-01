@@ -2,6 +2,9 @@ Books = new Meteor.Collection("books");
 Cart = new Meteor.Collection("cart");
 
 if (Meteor.isClient) {
+
+  Meteor.subscribe("books");
+  Meteor.subscribe("cart");
   
   Template.books.events({
     "click .add": function() {
@@ -52,6 +55,14 @@ if (Meteor.isServer) {
 	  Cart.remove({});
 	}
   });
+  
+  Meteor.publish("books", function() {
+    return Books.find();
+  });
+  Meteor.publish("cart", function() {
+    return Cart.find();
+  });
+  
   Meteor.startup(function() {
     Books.remove({});
     Books.insert({title: "Meteor in Action", price: 49.99});
