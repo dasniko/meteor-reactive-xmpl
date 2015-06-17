@@ -48,7 +48,7 @@ if (Meteor.isClient) {
 if (Meteor.isServer) {
   Meteor.methods({
     addToCart: function(title, price) {
-	  for (var i=0; i<1000000000; i++) {} // this is just to "simulate" high server load...
+	  for (var i=0; i<3000000000; i++) {} // this is just to "simulate" high server load...
 	  Cart.insert({title: title, availability: "on stock", price: price});
 	},
 	resetCart: function() {
